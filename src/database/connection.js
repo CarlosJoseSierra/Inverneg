@@ -10,7 +10,7 @@ export const dbSettings = {
   password: "Solomon2011",
   server: "181.198.20.179",
   //server: "192.168.15.6",
-  database: "DB_PINOYCAZA_",
+  database: "DB_PRUEBA",
   options: {
     encrypt: false, // for azure
     trustServerCertificate: true, // change to true for local dev / self-signed certs

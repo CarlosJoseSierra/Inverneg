@@ -8,6 +8,7 @@ import {
   getcountActivo,
   getTipoInventario,
   getTipoActivo,
+  createNewInventory,
 } from "../controllers/activos.controller";
 
 const router = Router();

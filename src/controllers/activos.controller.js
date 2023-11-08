@@ -225,3 +225,5 @@ export const getTipoActivo = async (req, res) => {
     res.send(error.message);
   }
 };
+
+
