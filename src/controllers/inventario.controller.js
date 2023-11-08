@@ -55,18 +55,18 @@ export const createNewInventory = async (req, res) => {
   }
 };
 
+
 export const getInventoryActive = async (req, res) => {
   try {
     const pool = await getConnection();
-
-    const result = await pool
-      .request()
-      .query(querys.getInventoryByActive);
-    return res.json(result.recordset[0]);
+    const result = await pool.request().query(querys.getInventoryByActive);
+    res.json(result.recordset);
   } catch (error) {
     res.status(500);
     res.send(error.message);
+    console.log(error.message);
   }
 };
+
 
 

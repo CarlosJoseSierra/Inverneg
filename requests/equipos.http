@@ -1,4 +1,5 @@
-@api = http://localhost:3000/api/equipos
+@api = http://localhost:3000/api/inventario/xyz
+
 
 ###
 {{api}}

@@ -149,13 +149,16 @@ var getInventoryActive = /*#__PURE__*/function () {
           return pool.request().query(_database.querys.getInventoryByActive);
         case 6:
           result = _context4.sent;
-          return _context4.abrupt("return", res.json(result.recordset[0]));
+          res.json(result.recordset);
+          _context4.next = 15;
+          break;
         case 10:
           _context4.prev = 10;
           _context4.t0 = _context4["catch"](0);
           res.status(500);
           res.send(_context4.t0.message);
-        case 14:
+          console.log(_context4.t0.message);
+        case 15:
         case "end":
           return _context4.stop();
       }
