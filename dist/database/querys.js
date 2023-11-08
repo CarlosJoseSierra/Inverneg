@@ -69,6 +69,6 @@ var querys = {
   addNewInventario: "INSERT INTO INVENTARIO(INV_descripcion,INV_USU_ing,INV_fecha_ing) VALUES(@INV_descripcion,INV_USU_ing,GETDATE())",
   getAllInventory: "SELECT * FROM INVENTARIO",
   getInventoryById: "SELECT * FROM INVENTARIO Where INV_id = @Id",
-  getInventoryByActive: "SELECT TOP 1 * FROM EQUIPO_COMPLETO ORDER BY EQC_id DESC"
+  getInventoryByActive: "SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC"
 };
 exports.querys = querys;

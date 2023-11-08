@@ -88,5 +88,5 @@ export const querys = {
 
     getInventoryById:"SELECT * FROM INVENTARIO Where INV_id = @Id",
 
-    getInventoryByActive:"SELECT TOP 1 * FROM EQUIPO_COMPLETO ORDER BY EQC_id DESC",
+    getInventoryByActive:"SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
 };
