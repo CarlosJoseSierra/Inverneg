@@ -19,6 +19,7 @@ var _marcaRouter = _interopRequireDefault(require("./routes/marca.router.js"));
 var _localizacionRouter = _interopRequireDefault(require("./routes/localizacion.router.js"));
 var _infoRouter = _interopRequireDefault(require("./routes/info.router.js"));
 var _ubicacionRouter = _interopRequireDefault(require("./routes/ubicacion.router.js"));
+var _inventarioRouter = _interopRequireDefault(require("./routes/inventario.router.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //import cors from "cors";
 
@@ -51,9 +52,10 @@ app.use("/api", _marcaRouter["default"]);
 app.use("/api", _localizacionRouter["default"]);
 app.use("/api", _infoRouter["default"]);
 app.use("/api", _ubicacionRouter["default"]);
+app.use("/api", _inventarioRouter["default"]);
 app.use(function (req, res, next) {
   res.status(404).json({
-    message: 'endpoint not found2'
+    message: 'endpoint not found'
   });
 });
 var _default = app;
