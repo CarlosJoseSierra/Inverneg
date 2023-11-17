@@ -71,13 +71,13 @@ var querys = {
   getInventoryById: "SELECT * FROM INVENTARIO Where INV_id = @Id",
   getInventoryByActive: "SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
   //17-11-2023
-  getAllBodegas: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing FROM BODEGA ORDER BY BOD_descripcion",
+  getAllBodegas: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY BOD_descripcion",
   addNewBodega: "INSERT INTO BODEGA(BOD_descripcion,BOD_direccion,BOD_SUC_id,BOD_USU_ing,BOD_fecha_ing,BOD_USU_edit,BOD_fecha_edit) VALUES(@BOD_descripcion,@BOD_direccion,@BOD_SUC_id,@BOD_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
   updateBodegaById: "UPDATE BODEGA SET BOD_descripcion = @BOD_descripcion,BOD_direccion = @BOD_direccion,BOD_SUC_id = @BOD_SUC_id,BOD_USU_edit = @BOD_USU_edit,BOD_fecha_edit = GETDATE() WHERE BOD_id = @Id",
-  getBodegaById: "SELECT BOD_id, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing FROM BODEGA Where BOD_id = @Id",
-  getAllSucursales: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing FROM SUCURSAL ORDER BY SUC_descripcion",
+  getBodegaById: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id WHERE BOD_id = @Id ORDER BY BOD_descripcion ",
+  getAllSucursales: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY SUC_descripcion",
   addNewSucursal: "INSERT INTO SUCURSAL(SUC_descripcion,SUC_direccion,SUC_UBIC_id,SUC_USU_ing,SUC_fecha_ing,SUC_USU_edit,SUC_fecha_edit) VALUES(@SUC_descripcion,@SUC_direccion,@SUC_UBIC_id,@SUC_USU_ing,GETDATE(),@SUC_USU_ing,GETDATE())",
   updateSucursalById: "UPDATE SUCURSAL SET SUC_descripcion = @SUC_descripcion,SUC_direccion = @SUC_direccion,SUC_UBIC_id = @SUC_UBIC_id,SUC_USU_edit = @SUC_USU_edit,SUC_fecha_edit = GETDATE() WHERE SUC_id = @Id",
-  getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing FROM SUCURSAL Where SUC_id = @Id"
+  getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id  WHERE SUC_id = @Id ORDER BY SUC_descripcion"
 };
 exports.querys = querys;
