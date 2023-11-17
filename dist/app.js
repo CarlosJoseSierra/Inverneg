@@ -20,6 +20,8 @@ var _localizacionRouter = _interopRequireDefault(require("./routes/localizacion.
 var _infoRouter = _interopRequireDefault(require("./routes/info.router.js"));
 var _ubicacionRouter = _interopRequireDefault(require("./routes/ubicacion.router.js"));
 var _inventarioRouter = _interopRequireDefault(require("./routes/inventario.router.js"));
+var _bodegaRouter = _interopRequireDefault(require("./routes/bodega.router.js"));
+var _sucursalRouter = _interopRequireDefault(require("./routes/sucursal.router.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //import cors from "cors";
 
@@ -53,6 +55,8 @@ app.use("/api", _localizacionRouter["default"]);
 app.use("/api", _infoRouter["default"]);
 app.use("/api", _ubicacionRouter["default"]);
 app.use("/api", _inventarioRouter["default"]);
+app.use("/api", _bodegaRouter["default"]);
+app.use("/api", _sucursalRouter["default"]);
 app.use(function (req, res, next) {
   res.status(404).json({
     message: 'endpoint not found'

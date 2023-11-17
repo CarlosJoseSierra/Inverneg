@@ -15,6 +15,8 @@ import localizacionRoutes from "./routes/localizacion.router.js";
 import infoRoutes from "./routes/info.router.js";
 import ubicacionRoutes from "./routes/ubicacion.router.js";
 import inventarioRoutes from "./routes/inventario.router.js";
+import bodegaRoutes from "./routes/bodega.router.js";
+import sucursalRoutes from "./routes/sucursal.router.js";
 
 //import morgan from "morgan";
 //import config from "./config.js";
@@ -44,6 +46,8 @@ app.use("/api", localizacionRoutes);
 app.use("/api", infoRoutes);
 app.use("/api", ubicacionRoutes);
 app.use("/api", inventarioRoutes);
+app.use("/api", bodegaRoutes);
+app.use("/api",sucursalRoutes);
 app.use((req,res,next)=>{
     res.status(404).json({
         message: 'endpoint not found'

@@ -89,4 +89,16 @@ export const querys = {
     getInventoryById:"SELECT * FROM INVENTARIO Where INV_id = @Id",
 
     getInventoryByActive:"SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
+
+    //17-11-2023
+    getAllBodegas: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing FROM BODEGA ORDER BY BOD_descripcion",
+    addNewBodega: "INSERT INTO BODEGA(BOD_descripcion,BOD_direccion,BOD_SUC_id,BOD_USU_ing,BOD_fecha_ing,BOD_USU_edit,BOD_fecha_edit) VALUES(@BOD_descripcion,@BOD_direccion,@BOD_SUC_id,@BOD_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
+    updateBodegaById: "UPDATE BODEGA SET BOD_descripcion = @BOD_descripcion,BOD_direccion = @BOD_direccion,BOD_SUC_id = @BOD_SUC_id,BOD_USU_edit = @BOD_USU_edit,BOD_fecha_edit = GETDATE() WHERE BOD_id = @Id",
+    getBodegaById: "SELECT BOD_id, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing FROM BODEGA Where BOD_id = @Id",
+
+    getAllSucursales: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing FROM SUCURSAL ORDER BY SUC_descripcion",
+    addNewSucursal: "INSERT INTO SUCURSAL(SUC_descripcion,SUC_direccion,SUC_UBIC_id,SUC_USU_ing,SUC_fecha_ing,SUC_USU_edit,SUC_fecha_edit) VALUES(@SUC_descripcion,@SUC_direccion,@SUC_UBIC_id,@SUC_USU_ing,GETDATE(),@SUC_USU_ing,GETDATE())",
+    updateSucursalById: "UPDATE SUCURSAL SET SUC_descripcion = @SUC_descripcion,SUC_direccion = @SUC_direccion,SUC_UBIC_id = @SUC_UBIC_id,SUC_USU_edit = @SUC_USU_edit,SUC_fecha_edit = GETDATE() WHERE SUC_id = @Id",
+    getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing FROM SUCURSAL Where SUC_id = @Id",
+
 };
