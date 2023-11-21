@@ -91,7 +91,7 @@ export const querys = {
     getInventoryByActive:"SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
 
     //17-11-2023
-    getAllBodegas: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY BOD_descripcion",
+    getAllBodegas: "SELECT BOD_id, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY BOD_descripcion",
     addNewBodega: "INSERT INTO BODEGA(BOD_descripcion,BOD_direccion,BOD_SUC_id,BOD_USU_ing,BOD_fecha_ing,BOD_USU_edit,BOD_fecha_edit) VALUES(@BOD_descripcion,@BOD_direccion,@BOD_SUC_id,@BOD_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
     updateBodegaById: "UPDATE BODEGA SET BOD_descripcion = @BOD_descripcion,BOD_direccion = @BOD_direccion,BOD_SUC_id = @BOD_SUC_id,BOD_USU_edit = @BOD_USU_edit,BOD_fecha_edit = GETDATE() WHERE BOD_id = @Id",
     getBodegaById: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id WHERE BOD_id = @Id ORDER BY BOD_descripcion ",
