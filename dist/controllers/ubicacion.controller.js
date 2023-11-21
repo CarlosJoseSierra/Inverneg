@@ -104,12 +104,12 @@ var createNewUbicacion = /*#__PURE__*/function () {
 exports.createNewUbicacion = createNewUbicacion;
 var updateUbicacionById = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(req, res) {
-    var _req$body2, UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, pool, result;
+    var _req$body2, UBIC_ciudad, UBIC_provincia, UBIC_USU_edit, pool, result;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body2 = req.body, UBIC_ciudad = _req$body2.UBIC_ciudad, UBIC_provincia = _req$body2.UBIC_provincia, UBIC_USU_ing = _req$body2.UBIC_USU_ing; // validating
-          if (!(UBIC_ciudad == null || UBIC_provincia == null || UBIC_USU_ing == null)) {
+          _req$body2 = req.body, UBIC_ciudad = _req$body2.UBIC_ciudad, UBIC_provincia = _req$body2.UBIC_provincia, UBIC_USU_edit = _req$body2.UBIC_USU_edit; // validating
+          if (!(UBIC_ciudad == null || UBIC_provincia == null || UBIC_USU_edit == null)) {
             _context3.next = 3;
             break;
           }
@@ -123,7 +123,7 @@ var updateUbicacionById = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("id", req.params.id).input("UBIC_ciudad", _database.sql.VarChar, UBIC_ciudad).input("UBIC_provincia", _database.sql.VarChar, UBIC_provincia).input("UBIC_USU_edit", _database.sql.Decimal, UBIC_USU_ing).query(_database.querys.updateUbicacionById);
+          return pool.request().input("id", req.params.id).input("UBIC_ciudad", _database.sql.VarChar, UBIC_ciudad).input("UBIC_provincia", _database.sql.VarChar, UBIC_provincia).input("UBIC_USU_edit", _database.sql.Decimal, UBIC_USU_edit).query(_database.querys.updateUbicacionById);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {

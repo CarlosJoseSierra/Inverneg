@@ -41,10 +41,10 @@ export const createNewUbicacion = async (req, res) => {
 };
 
 export const updateUbicacionById = async (req, res) => {
-  const { UBIC_ciudad, UBIC_provincia,UBIC_USU_ing} = req.body;
+  const { UBIC_ciudad, UBIC_provincia,UBIC_USU_edit} = req.body;
   
   // validating
-  if (UBIC_ciudad == null || UBIC_provincia == null ||  UBIC_USU_ing==null) {
+  if (UBIC_ciudad == null || UBIC_provincia == null ||  UBIC_USU_edit==null) {
     return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
   }
   try {
@@ -56,7 +56,7 @@ export const updateUbicacionById = async (req, res) => {
       .input("id", req.params.id)
       .input("UBIC_ciudad", sql.VarChar, UBIC_ciudad)
       .input("UBIC_provincia", sql.VarChar, UBIC_provincia)
-      .input("UBIC_USU_edit", sql.Decimal, UBIC_USU_ing)
+      .input("UBIC_USU_edit", sql.Decimal, UBIC_USU_edit)
       .query(querys.updateUbicacionById);
 
    if(result.rowsAffected==1){
