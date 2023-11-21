@@ -79,7 +79,7 @@ var querys = {
   updateSucursalById: "UPDATE SUCURSAL SET SUC_descripcion = @SUC_descripcion,SUC_direccion = @SUC_direccion,SUC_UBIC_id = @SUC_UBIC_id,SUC_USU_edit = @SUC_USU_edit,SUC_fecha_edit = GETDATE() WHERE SUC_id = @Id",
   getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id  WHERE SUC_id = @Id ",
   getAllUbicacion: "SELECT UBIC_id, UBIC_ciudad, UBIC_provincia FROM UBICACION ORDER BY UBIC_ciudad",
-  addNewUbicacion: "INSERT INTO UBICACION(UBIC_ciudad,UBIC_provincia,UBIC_USU_ing,UBIC_fecha_ing,UBIC_USU_edit,UBIC_fecha_edit) VALUES(@UBIC_ciudad,@UBIC_provincia,@UBIC_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
+  addNewUbicacion: "INSERT INTO UBICACION(UBIC_ciudad,UBIC_provincia,UBIC_USU_ing,UBIC_fecha_ing,UBIC_USU_edit,UBIC_fecha_edit) VALUES(@UBIC_ciudad,@UBIC_provincia,@UBIC_USU_ing,GETDATE(),@UBIC_USU_ing,GETDATE())",
   updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE UBIC_id = @Id",
   getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id "
 };
