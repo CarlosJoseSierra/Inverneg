@@ -43,10 +43,10 @@ export const createNewSucursal = async (req, res) => {
 };
 
 export const updateSucursalById = async (req, res) => {
-    const { SUC_descripcion, SUC_direccion, SUC_UBIC_id,SUC_USU_ing} = req.body;
+    const { SUC_descripcion, SUC_direccion, SUC_UBIC_id,SUC_USU_edit} = req.body;
   
   // validating
-  if (SUC_descripcion == null || SUC_direccion == null ||  SUC_UBIC_id==null || SUC_USU_ing == null) {
+  if (SUC_descripcion == null || SUC_direccion == null ||  SUC_UBIC_id==null || SUC_USU_edit == null) {
     return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
   }
 
@@ -60,7 +60,7 @@ export const updateSucursalById = async (req, res) => {
       .input("SUC_descripcion", sql.VarChar, SUC_descripcion)
       .input("SUC_direccion", sql.VarChar, SUC_direccion)
       .input("SUC_UBIC_id", sql.Decimal, SUC_UBIC_id)
-      .input("SUC_USU_ing", sql.Decimal, SUC_USU_ing)
+      .input("SUC_USU_edit", sql.Decimal, SUC_USU_edit)
       .query(querys.updateSucursalById);
 
    if(result.rowsAffected==1){

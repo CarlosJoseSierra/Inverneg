@@ -56,7 +56,7 @@ export const updateUbicacionById = async (req, res) => {
       .input("id", req.params.id)
       .input("UBIC_ciudad", sql.VarChar, UBIC_ciudad)
       .input("UBIC_provincia", sql.VarChar, UBIC_provincia)
-      .input("UBIC_USU_ing", sql.Decimal, UBIC_USU_ing)
+      .input("UBIC_USU_edit", sql.Decimal, UBIC_USU_ing)
       .query(querys.updateUbicacionById);
 
    if(result.rowsAffected==1){

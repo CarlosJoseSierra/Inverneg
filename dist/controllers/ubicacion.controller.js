@@ -123,7 +123,7 @@ var updateUbicacionById = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("id", req.params.id).input("UBIC_ciudad", _database.sql.VarChar, UBIC_ciudad).input("UBIC_provincia", _database.sql.VarChar, UBIC_provincia).input("UBIC_USU_ing", _database.sql.Decimal, UBIC_USU_ing).query(_database.querys.updateUbicacionById);
+          return pool.request().input("id", req.params.id).input("UBIC_ciudad", _database.sql.VarChar, UBIC_ciudad).input("UBIC_provincia", _database.sql.VarChar, UBIC_provincia).input("UBIC_USU_edit", _database.sql.Decimal, UBIC_USU_ing).query(_database.querys.updateUbicacionById);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {

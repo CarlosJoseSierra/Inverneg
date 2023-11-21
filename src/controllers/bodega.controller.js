@@ -43,10 +43,10 @@ export const createNewBodega = async (req, res) => {
 };
 
 export const updateBodegaById = async (req, res) => {
-    const { BOD_descripcion, BOD_direccion, BOD_SUC_id,BOD_USU_ing} = req.body;
+    const { BOD_descripcion, BOD_direccion, BOD_SUC_id,BOD_USU_edit} = req.body;
   
     // validating
-    if (BOD_descripcion == null || BOD_direccion == null ||  BOD_SUC_id==null || BOD_USU_ing == null) {
+    if (BOD_descripcion == null || BOD_direccion == null ||  BOD_SUC_id==null || BOD_USU_edit == null) {
       return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
     }
 
@@ -60,7 +60,7 @@ export const updateBodegaById = async (req, res) => {
       .input("BOD_descripcion", sql.VarChar, BOD_descripcion)
       .input("BOD_direccion", sql.VarChar, BOD_direccion)
       .input("BOD_SUC_id", sql.Decimal, BOD_SUC_id)
-      .input("BOD_USU_ing", sql.Decimal, BOD_USU_ing)
+      .input("BOD_USU_edit", sql.Decimal, BOD_USU_edit)
       .query(querys.updateBodegaById);
 
    if(result.rowsAffected==1){

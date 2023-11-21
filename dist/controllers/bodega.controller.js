@@ -104,12 +104,12 @@ var createNewBodega = /*#__PURE__*/function () {
 exports.createNewBodega = createNewBodega;
 var updateBodegaById = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(req, res) {
-    var _req$body2, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing, pool, result;
+    var _req$body2, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_edit, pool, result;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body2 = req.body, BOD_descripcion = _req$body2.BOD_descripcion, BOD_direccion = _req$body2.BOD_direccion, BOD_SUC_id = _req$body2.BOD_SUC_id, BOD_USU_ing = _req$body2.BOD_USU_ing; // validating
-          if (!(BOD_descripcion == null || BOD_direccion == null || BOD_SUC_id == null || BOD_USU_ing == null)) {
+          _req$body2 = req.body, BOD_descripcion = _req$body2.BOD_descripcion, BOD_direccion = _req$body2.BOD_direccion, BOD_SUC_id = _req$body2.BOD_SUC_id, BOD_USU_edit = _req$body2.BOD_USU_edit; // validating
+          if (!(BOD_descripcion == null || BOD_direccion == null || BOD_SUC_id == null || BOD_USU_edit == null)) {
             _context3.next = 3;
             break;
           }
@@ -123,7 +123,7 @@ var updateBodegaById = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("id", req.params.id).input("BOD_descripcion", _database.sql.VarChar, BOD_descripcion).input("BOD_direccion", _database.sql.VarChar, BOD_direccion).input("BOD_SUC_id", _database.sql.Decimal, BOD_SUC_id).input("BOD_USU_ing", _database.sql.Decimal, BOD_USU_ing).query(_database.querys.updateBodegaById);
+          return pool.request().input("id", req.params.id).input("BOD_descripcion", _database.sql.VarChar, BOD_descripcion).input("BOD_direccion", _database.sql.VarChar, BOD_direccion).input("BOD_SUC_id", _database.sql.Decimal, BOD_SUC_id).input("BOD_USU_edit", _database.sql.Decimal, BOD_USU_edit).query(_database.querys.updateBodegaById);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {

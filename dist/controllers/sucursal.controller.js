@@ -104,12 +104,12 @@ var createNewSucursal = /*#__PURE__*/function () {
 exports.createNewSucursal = createNewSucursal;
 var updateSucursalById = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(req, res) {
-    var _req$body2, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing, pool, result;
+    var _req$body2, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_edit, pool, result;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body2 = req.body, SUC_descripcion = _req$body2.SUC_descripcion, SUC_direccion = _req$body2.SUC_direccion, SUC_UBIC_id = _req$body2.SUC_UBIC_id, SUC_USU_ing = _req$body2.SUC_USU_ing; // validating
-          if (!(SUC_descripcion == null || SUC_direccion == null || SUC_UBIC_id == null || SUC_USU_ing == null)) {
+          _req$body2 = req.body, SUC_descripcion = _req$body2.SUC_descripcion, SUC_direccion = _req$body2.SUC_direccion, SUC_UBIC_id = _req$body2.SUC_UBIC_id, SUC_USU_edit = _req$body2.SUC_USU_edit; // validating
+          if (!(SUC_descripcion == null || SUC_direccion == null || SUC_UBIC_id == null || SUC_USU_edit == null)) {
             _context3.next = 3;
             break;
           }
@@ -123,7 +123,7 @@ var updateSucursalById = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("id", req.params.id).input("SUC_descripcion", _database.sql.VarChar, SUC_descripcion).input("SUC_direccion", _database.sql.VarChar, SUC_direccion).input("SUC_UBIC_id", _database.sql.Decimal, SUC_UBIC_id).input("SUC_USU_ing", _database.sql.Decimal, SUC_USU_ing).query(_database.querys.updateSucursalById);
+          return pool.request().input("id", req.params.id).input("SUC_descripcion", _database.sql.VarChar, SUC_descripcion).input("SUC_direccion", _database.sql.VarChar, SUC_direccion).input("SUC_UBIC_id", _database.sql.Decimal, SUC_UBIC_id).input("SUC_USU_edit", _database.sql.Decimal, SUC_USU_edit).query(_database.querys.updateSucursalById);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {
