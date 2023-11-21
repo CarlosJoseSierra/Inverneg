@@ -78,6 +78,9 @@ var querys = {
   getAllSucursales: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY SUC_descripcion",
   addNewSucursal: "INSERT INTO SUCURSAL(SUC_descripcion,SUC_direccion,SUC_UBIC_id,SUC_USU_ing,SUC_fecha_ing,SUC_USU_edit,SUC_fecha_edit) VALUES(@SUC_descripcion,@SUC_direccion,@SUC_UBIC_id,@SUC_USU_ing,GETDATE(),@SUC_USU_ing,GETDATE())",
   updateSucursalById: "UPDATE SUCURSAL SET SUC_descripcion = @SUC_descripcion,SUC_direccion = @SUC_direccion,SUC_UBIC_id = @SUC_UBIC_id,SUC_USU_edit = @SUC_USU_edit,SUC_fecha_edit = GETDATE() WHERE SUC_id = @Id",
-  getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id  WHERE SUC_id = @Id ORDER BY SUC_descripcion"
+  getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id  WHERE SUC_id = @Id ORDER BY SUC_descripcion",
+  addNewUbicacion: "INSERT INTO UBICACION(UBIC_ciudad,UBIC_provincia,UBIC_USU_ing,UBIC_fecha_ing,UBIC_USU_edit,UBIC_fecha_edit) VALUES(@UBIC_ciudad,@UBIC_provincia,@UBIC_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
+  updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE BOD_id = @Id",
+  getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id "
 };
 exports.querys = querys;
