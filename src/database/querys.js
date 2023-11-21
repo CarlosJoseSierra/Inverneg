@@ -75,8 +75,6 @@ export const querys = {
     getAllCiudad:"SELECT DISTINCT(EQC_provincia) AS EQC_MAP_ciudad FROM EQUIPO_COMPLETO ORDER BY EQC_provincia",
     getAllProvincia:"SELECT DISTINCT(EQC_provincia) AS EQC_MAP_provincia FROM EQUIPO_COMPLETO ORDER BY EQC_provincia",
 
-    getAllUbicacion: "SELECT UBIC_id, UBIC_ciudad, UBIC_provincia FROM UBICACION ORDER BY UBIC_ciudad",
-
     getDataEtiquetas: "SELECT T.TI_descripcion AS DESCRIPCION,COUNT(DISTINCT(T.EQC_id))AS CANTIDAD FROM(SELECT EQC_TI_id,EQC_id,TI_descripcion FROM EQUIPO_COMPLETO INNER JOIN TIPO_INVENTARIO ON EQC_TI_id = TI_id) T GROUP BY T.TI_descripcion",
 
 
@@ -94,15 +92,16 @@ export const querys = {
     getAllBodegas: "SELECT BOD_id, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY BOD_descripcion",
     addNewBodega: "INSERT INTO BODEGA(BOD_descripcion,BOD_direccion,BOD_SUC_id,BOD_USU_ing,BOD_fecha_ing,BOD_USU_edit,BOD_fecha_edit) VALUES(@BOD_descripcion,@BOD_direccion,@BOD_SUC_id,@BOD_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
     updateBodegaById: "UPDATE BODEGA SET BOD_descripcion = @BOD_descripcion,BOD_direccion = @BOD_direccion,BOD_SUC_id = @BOD_SUC_id,BOD_USU_edit = @BOD_USU_edit,BOD_fecha_edit = GETDATE() WHERE BOD_id = @Id",
-    getBodegaById: "SELECT BOD_id, SUC_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id WHERE BOD_id = @Id ORDER BY BOD_descripcion ",
+    getBodegaById: "SELECT BOD_id, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id WHERE BOD_id = @Id",
 
     getAllSucursales: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY SUC_descripcion",
     addNewSucursal: "INSERT INTO SUCURSAL(SUC_descripcion,SUC_direccion,SUC_UBIC_id,SUC_USU_ing,SUC_fecha_ing,SUC_USU_edit,SUC_fecha_edit) VALUES(@SUC_descripcion,@SUC_direccion,@SUC_UBIC_id,@SUC_USU_ing,GETDATE(),@SUC_USU_ing,GETDATE())",
     updateSucursalById: "UPDATE SUCURSAL SET SUC_descripcion = @SUC_descripcion,SUC_direccion = @SUC_direccion,SUC_UBIC_id = @SUC_UBIC_id,SUC_USU_edit = @SUC_USU_edit,SUC_fecha_edit = GETDATE() WHERE SUC_id = @Id",
-    getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id  WHERE SUC_id = @Id ORDER BY SUC_descripcion",
+    getSucursalById: "SELECT SUC_id, SUC_descripcion, SUC_direccion, SUC_UBIC_id, SUC_USU_ing,UBIC_ciudad,UBIC_provincia FROM SUCURSAL INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id  WHERE SUC_id = @Id ",
 
+    getAllUbicacion: "SELECT UBIC_id, UBIC_ciudad, UBIC_provincia FROM UBICACION ORDER BY UBIC_ciudad",
     addNewUbicacion: "INSERT INTO UBICACION(UBIC_ciudad,UBIC_provincia,UBIC_USU_ing,UBIC_fecha_ing,UBIC_USU_edit,UBIC_fecha_edit) VALUES(@UBIC_ciudad,@UBIC_provincia,@UBIC_USU_ing,GETDATE(),@BOD_USU_ing,GETDATE())",
-    updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE BOD_id = @Id",
+    updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE UBIC_id = @Id",
     getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id ",
 
 };
