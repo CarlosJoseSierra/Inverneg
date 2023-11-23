@@ -130,3 +130,14 @@ Content-Type: application/json
 
 ### get product
 {{api10}}
+
+### add a ubicacion
+//POST https://inverneg-production.up.railway.app/api/ubicacion/new
+POST http://localhost:3000/api/ubicacion/new
+Content-Type: application/json
+
+{   
+    "UBIC_ciudad":"CARLOS",
+    "UBIC_provincia":"SIERRA",
+    "UBIC_USU_ing":1
+}

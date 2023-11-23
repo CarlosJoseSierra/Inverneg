@@ -67,14 +67,17 @@ var createNewUbicacion = /*#__PURE__*/function () {
           return pool.request().input("UBIC_ciudad", _database.sql.VarChar, UBIC_ciudad).input("UBIC_provincia", _database.sql.VarChar, UBIC_provincia).input("UBIC_USU_ing", _database.sql.Decimal, UBIC_USU_ing).query(_database.querys.addNewUbicacion);
         case 9:
           result = _context2.sent;
-          if (!(result.rowsAffected == 1)) {
+          if (!(result.rowsAffected[0] == 1)) {
             _context2.next = 14;
             break;
           }
           return _context2.abrupt("return", res.status(200).json({
             status: "ok",
             msg: "Registro exitoso",
-            token: 0
+            token: 0,
+            UBIC_id: result.recordset[0].UBIC_id,
+            UBIC_ciudad: UBIC_ciudad,
+            UBIC_provincia: UBIC_provincia
           }));
         case 14:
           return _context2.abrupt("return", res.status(400).json({
