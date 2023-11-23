@@ -135,8 +135,11 @@ var updateUbicacionById = /*#__PURE__*/function () {
           }
           return _context3.abrupt("return", res.status(200).json({
             status: "ok",
-            msg: "Actualizacion exitosa",
-            token: 0
+            msg: "Registro exitoso",
+            token: 0,
+            UBIC_id: req.params.id,
+            UBIC_ciudad: UBIC_ciudad,
+            UBIC_provincia: UBIC_provincia
           }));
         case 14:
           return _context3.abrupt("return", res.status(400).json({

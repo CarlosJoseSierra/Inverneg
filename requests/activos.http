@@ -133,11 +133,11 @@ Content-Type: application/json
 
 ### add a ubicacion
 //POST https://inverneg-production.up.railway.app/api/ubicacion/new
-POST http://localhost:3000/api/ubicacion/new
+PUT http://localhost:3000/api/ubicacion/x/32
 Content-Type: application/json
 
 {   
-    "UBIC_ciudad":"CARLOS",
-    "UBIC_provincia":"SIERRA",
-    "UBIC_USU_ing":1
+    "UBIC_ciudad":"CARLOS JOSE",
+    "UBIC_provincia":"SIERRA ALVARADO",
+    "UBIC_USU_edit":1
 }

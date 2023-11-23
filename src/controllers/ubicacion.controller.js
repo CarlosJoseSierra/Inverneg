@@ -27,10 +27,6 @@ export const createNewUbicacion = async (req, res) => {
       .input("UBIC_provincia", sql.VarChar, UBIC_provincia)
       .input("UBIC_USU_ing", sql.Decimal, UBIC_USU_ing)
       .query(querys.addNewUbicacion);
-      //console.log(result);
-      //console.log(result.rowsAffected);
-      //console.log(result.recordset);
-      //console.lodirg(result);
       if(result.rowsAffected[0]==1){
         return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0, UBIC_id:result.recordset[0].UBIC_id,UBIC_ciudad:UBIC_ciudad,UBIC_provincia:UBIC_provincia});
       }else{
@@ -64,7 +60,8 @@ export const updateUbicacionById = async (req, res) => {
       .query(querys.updateUbicacionById);
 
    if(result.rowsAffected==1){
-    return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
+    //return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
+    return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0, UBIC_id:req.params.id,UBIC_ciudad:UBIC_ciudad,UBIC_provincia:UBIC_provincia});
   }else{
     return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0});
   }
