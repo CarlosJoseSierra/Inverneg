@@ -80,9 +80,9 @@ export const querys = {
 
     //20/10/2023
     addNewInventario:
-    "INSERT INTO INVENTARIO(INV_descripcion,INV_USU_ing,INV_fecha_ing) VALUES(@INV_descripcion,INV_USU_ing,GETDATE())",
+    "INSERT INTO INVENTARIO(INV_descripcion,INV_BOD_id,INV_USU_ing,INV_fecha_ing,INV_USU_edit,INV_fecha_edit, INV_estado,INV_fechaCierre) VALUES(@INV_descripcion,@INV_BOD_id,INV_USU_ing,GETDATE(),INV_USU_ing,GETDATE(),1,GETDATE())",
 
-    getAllInventory:"SELECT * FROM INVENTARIO",
+    getAllInventory:"SELECT  INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,INV_fecha_ing,INV_estado,INV_fecha_edit,INV_USU_edit,INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id",
 
     getInventoryById:"SELECT * FROM INVENTARIO Where INV_id = @Id",
 
