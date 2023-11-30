@@ -77,11 +77,11 @@ var getInventoryById = /*#__PURE__*/function () {
 exports.getInventoryById = getInventoryById;
 var createNewInventory = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(req, res) {
-    var _req$body, INV_descripcion, INV_USU_ing, pool, result;
+    var _req$body, INV_descripcion, INV_BOD_id, INV_USU_ing, pool, result;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body = req.body, INV_descripcion = _req$body.INV_descripcion, INV_USU_ing = _req$body.INV_USU_ing; // validating
+          _req$body = req.body, INV_descripcion = _req$body.INV_descripcion, INV_BOD_id = _req$body.INV_BOD_id, INV_USU_ing = _req$body.INV_USU_ing; // validating
           if (!(INV_descripcion == null || INV_USU_ing == null)) {
             _context3.next = 3;
             break;
@@ -96,7 +96,7 @@ var createNewInventory = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("INV_descripcion", _database.sql.VarChar, INV_descripcion).input("INV_USU_ing", _database.sql.VarChar, INV_USU_ing).query(_database.querys.addNewInventario);
+          return pool.request().input("INV_descripcion", _database.sql.VarChar, INV_descripcion).input("INV_descripcion", _database.sql.VarChar, INV_BOD_id).input("INV_USU_ing", _database.sql.VarChar, INV_USU_ing).query(_database.querys.addNewInventario);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {

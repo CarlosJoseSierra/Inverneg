@@ -28,7 +28,7 @@ export const getInventoryById = async (req, res) => {
 };
 
 export const createNewInventory = async (req, res) => {
-  const { INV_descripcion, INV_USU_ing} = req.body;
+  const { INV_descripcion, INV_BOD_id,INV_USU_ing} = req.body;
   
   // validating
   if (INV_descripcion == null || INV_USU_ing == null) {
@@ -40,6 +40,7 @@ export const createNewInventory = async (req, res) => {
     const result = await pool
       .request()
       .input("INV_descripcion", sql.VarChar, INV_descripcion)
+      .input("INV_descripcion", sql.VarChar, INV_BOD_id)
       .input("INV_USU_ing", sql.VarChar, INV_USU_ing)
       .query(querys.addNewInventario);
       if(result.rowsAffected==1){
