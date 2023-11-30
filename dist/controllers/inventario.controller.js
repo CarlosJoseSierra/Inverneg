@@ -96,7 +96,7 @@ var createNewInventory = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("INV_descripcion", _database.sql.VarChar, INV_descripcion).input("INV_descripcion", _database.sql.VarChar, INV_BOD_id).input("INV_USU_ing", _database.sql.VarChar, INV_USU_ing).query(_database.querys.addNewInventario);
+          return pool.request().input("INV_descripcion", _database.sql.VarChar, INV_descripcion).input("INV_BOD_id", _database.sql.VarChar, INV_BOD_id).input("INV_USU_ing", _database.sql.VarChar, INV_USU_ing).query(_database.querys.addNewInventario);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {
