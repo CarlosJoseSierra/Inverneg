@@ -85,7 +85,7 @@ export const querys = {
     getAllInventory:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id",
 
     getInventoryById:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id WHERE INV_id = @Id",
-
+    
     getInventoryByActive:"SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
 
     //17-11-2023
@@ -103,5 +103,7 @@ export const querys = {
     addNewUbicacion: "INSERT INTO UBICACION(UBIC_ciudad,UBIC_provincia,UBIC_USU_ing,UBIC_fecha_ing,UBIC_USU_edit,UBIC_fecha_edit) VALUES(@UBIC_ciudad,@UBIC_provincia,@UBIC_USU_ing,GETDATE(),@UBIC_USU_ing,GETDATE()); SELECT SCOPE_IDENTITY() AS UBIC_id;",
     updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE UBIC_id = @Id",
     getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id ",
+
+    getHistorialProductById:"SELECT * from HISTORIAL_PRODUCTO WHERE HIST_INV_id = @Id",
 
 };
