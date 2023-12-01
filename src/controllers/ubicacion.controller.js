@@ -63,7 +63,7 @@ export const updateUbicacionById = async (req, res) => {
     //return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
     return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0, UBIC_id:req.params.id,UBIC_ciudad:UBIC_ciudad,UBIC_provincia:UBIC_provincia});
   }else{
-    return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0});
+    return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0,UBIC_id:0,UBIC_ciudad:"",UBIC_provincia:""});
   }
   } catch (error) {
       res.status(500);

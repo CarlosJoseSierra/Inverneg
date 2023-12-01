@@ -145,7 +145,10 @@ var updateUbicacionById = /*#__PURE__*/function () {
           return _context3.abrupt("return", res.status(400).json({
             status: "400",
             msg: "No se pudo actualizar, consulte al administrador",
-            token: 0
+            token: 0,
+            UBIC_id: 0,
+            UBIC_ciudad: "",
+            UBIC_provincia: ""
           }));
         case 15:
           _context3.next = 21;
