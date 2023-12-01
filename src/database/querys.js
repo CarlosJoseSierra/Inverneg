@@ -84,7 +84,7 @@ export const querys = {
 
     getAllInventory:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id",
 
-    getInventoryById:"INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id WHERE INV_id = @Id",
+    getInventoryById:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id WHERE INV_id = @Id",
 
     getInventoryByActive:"SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
 
