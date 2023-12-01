@@ -65,9 +65,9 @@ var querys = {
   getAllProvincia: "SELECT DISTINCT(EQC_provincia) AS EQC_MAP_provincia FROM EQUIPO_COMPLETO ORDER BY EQC_provincia",
   getDataEtiquetas: "SELECT T.TI_descripcion AS DESCRIPCION,COUNT(DISTINCT(T.EQC_id))AS CANTIDAD FROM(SELECT EQC_TI_id,EQC_id,TI_descripcion FROM EQUIPO_COMPLETO INNER JOIN TIPO_INVENTARIO ON EQC_TI_id = TI_id) T GROUP BY T.TI_descripcion",
   //20/10/2023
-  addNewInventario: "INSERT INTO INVENTARIO(INV_descripcion,INV_BOD_id,INV_USU_ing,INV_fecha_ing,INV_USU_edit,INV_fecha_edit, INV_estado,INV_fechaCierre) VALUES(@INV_descripcion,@INV_BOD_id,INV_USU_ing,GETDATE(),INV_USU_ing,GETDATE(),1,GETDATE())",
+  addNewInventario: "INSERT INTO INVENTARIO(INV_descripcion,INV_BOD_id,INV_USU_ing,INV_fecha_ing,INV_USU_edit,INV_fecha_edit, INV_estado,INV_fechaCierre) VALUES(@INV_descripcion,@INV_BOD_id,INV_USU_ing,GETDATE(),INV_USU_ing,GETDATE(),1,GETDATE()); SELECT SCOPE_IDENTITY() AS INV_id;",
   getAllInventory: "SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id",
-  getInventoryById: "SELECT * FROM INVENTARIO Where INV_id = @Id",
+  getInventoryById: "INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id WHERE INV_id = @Id",
   getInventoryByActive: "SELECT TOP 1 * FROM INVENTARIO ORDER BY INV_id DESC",
   //17-11-2023
   getAllBodegas: "SELECT BOD_id, BOD_descripcion, BOD_direccion, BOD_SUC_id, BOD_USU_ing,SUC_descripcion,SUC_UBIC_id,UBIC_ciudad,UBIC_provincia FROM BODEGA INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id INNER JOIN UBICACION ON SUC_UBIC_id = UBIC_id ORDER BY BOD_descripcion",

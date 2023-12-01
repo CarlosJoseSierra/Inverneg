@@ -99,14 +99,16 @@ var createNewInventory = /*#__PURE__*/function () {
           return pool.request().input("INV_descripcion", _database.sql.VarChar, INV_descripcion).input("INV_BOD_id", _database.sql.VarChar, INV_BOD_id).input("INV_USU_ing", _database.sql.VarChar, INV_USU_ing).query(_database.querys.addNewInventario);
         case 9:
           result = _context3.sent;
-          if (!(result.rowsAffected == 1)) {
+          if (!(result.rowsAffected[0] == 1)) {
             _context3.next = 14;
             break;
           }
           return _context3.abrupt("return", res.status(200).json({
             status: "ok",
             msg: "Registro exitoso",
-            token: 0
+            token: 0,
+            INV_id: result.recordset[0].INV_id,
+            INV_BOD_id: INV_BOD_id
           }));
         case 14:
           return _context3.abrupt("return", res.status(400).json({

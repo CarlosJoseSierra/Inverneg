@@ -43,8 +43,8 @@ export const createNewInventory = async (req, res) => {
       .input("INV_BOD_id", sql.VarChar, INV_BOD_id)
       .input("INV_USU_ing", sql.VarChar, INV_USU_ing)
       .query(querys.addNewInventario);
-      if(result.rowsAffected==1){
-        return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0});
+      if(result.rowsAffected[0]==1){
+        return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0,INV_id:result.recordset[0].INV_id,INV_BOD_id:INV_BOD_id});
       }else{
         return res.status(400).json({ status: "400", msg: "No se pudo registrar, consulte al administrador" ,token:0});
       }
