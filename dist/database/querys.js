@@ -83,6 +83,13 @@ var querys = {
   updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE UBIC_id = @Id",
   getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id ",
   getHistorialProductById: "SELECT HIST_id,HIST_stockFijo,HIST_stockReal, HIST_costoFijo, HIST_costoReal, PROD_codigo, PROD_descripcion  FROM HISTORIAL_PRODUCTO INNER JOIN PRODUCTO ON HIST_PROD_id = PROD_id WHERE HIST_INV_id = @Id",
-  updateHistorialByItem: "UPDATE HISTORIAL_PRODUCTO SET HIST_stockReal = @HIST_stockReal,HIST_costoReal = @HIST_costoReal WHERE HIST_id = @Id"
+  updateHistorialByItem: "UPDATE HISTORIAL_PRODUCTO SET HIST_stockReal = @HIST_stockReal,HIST_costoReal = @HIST_costoReal WHERE HIST_id = @Id",
+  //Items
+  //17-11-2023
+  getAllProductos: "SELECT PROD_id, PROD_codigo, PROD_codigoExt, PROD_descripcion, PROD_TP_id,PROD_stockFijo,PROD_costoFijo,PROD_costoFijo,PROD_stockReal,PROD_costoReal,PROD_totalReal,PROD_INV_id,PROD_USU_ing,PROD_fecha_ing,PROD_USU_edit,PROD_fecha_edit,PROD_estado,PROD_BOD_id,PROD_linea FROM PRODUCTO",
+  addNewProducto: "INSERT INTO PRODUCTO(PROD_codigo,PROD_codigoExt,PROD_descripcion,PROD_TP_id,PROD_stockFijo,PROD_costoFijo,PROD_costoFijo,PROD_stockReal,PROD_totalReal,PROD_INV_id,PROD_USU_ing,PROD_fecha_ing,PROD_USU_edit,PROD_fecha_edit,PROD_estado,PROD_BOD_id,PROD_linea) VALUES(@PROD_codigo,@PROD_codigoExt,@PROD_descripcion,@PROD_TP_id,@PROD_stockFijo,@PROD_costoFijo,@PROD_costoFijo,@PROD_stockReal,@PROD_totalReal,@PROD_INV_id,@PROD_USU_ing,GETDATE(),@PROD_USU_ing,GETDATE(),1,@PROD_BOD_id,@PROD_linea)",
+  //updateProductoById: "UPDATE BODEGA SET BOD_descripcion = @BOD_descripcion,BOD_direccion = @BOD_direccion,BOD_SUC_id = @BOD_SUC_id,BOD_USU_edit = @BOD_USU_edit,BOD_fecha_edit = GETDATE() WHERE BOD_id = @Id",
+  getProductoById: "SELECT PROD_id, PROD_codigo, PROD_codigoExt, PROD_descripcion, PROD_TP_id,PROD_stockFijo,PROD_costoFijo,PROD_costoFijo,PROD_stockReal,PROD_costoReal,PROD_totalReal,PROD_INV_id,PROD_USU_ing,PROD_fecha_ing,PROD_USU_edit,PROD_fecha_edit,PROD_estado,PROD_BOD_id,PROD_linea FROM PRODUCTO WHERE PROD_id = @Id",
+  updateProductoBodegaById: "UPDATE PRODUCTO SET PROD_INV_id = @PROD_INV_id,PROD_USU_edit = @PROD_USU_edit,PROD_fecha_edit = GETDATE() WHERE PROD_BOD_id = @Id"
 };
 exports.querys = querys;
