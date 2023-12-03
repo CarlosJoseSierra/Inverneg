@@ -18,6 +18,7 @@ import inventarioRoutes from "./routes/inventario.router.js";
 import bodegaRoutes from "./routes/bodega.router.js";
 import sucursalRoutes from "./routes/sucursal.router.js";
 import historialProductoRoutes from "./routes/historialProducto.router.js";
+import productoRoutes from "./routes/producto.router.js";
 
 //import morgan from "morgan";
 //import config from "./config.js";
@@ -50,6 +51,7 @@ app.use("/api", inventarioRoutes);
 app.use("/api", bodegaRoutes);
 app.use("/api", sucursalRoutes);
 app.use("/api", historialProductoRoutes);
+app.use("/api", productoRoutes);
 app.use((req,res,next)=>{
     res.status(404).json({
         message: 'endpoint not found'
