@@ -163,7 +163,7 @@ var updateProductoBodegaById = /*#__PURE__*/function () {
         case 6:
           pool = _context5.sent;
           _context5.next = 9;
-          return pool.request().input("id", req.params.id).input("PROD_INV_id", _database.sql.VarChar, PROD_INV_id).input("PROD_BOD_id", _database.sql.VarChar, PROD_BOD_id).input("PROD_USU_edit", _database.sql.Decimal, PROD_USU_edit).query(_database.querys.updateProductoBodegaById);
+          return pool.request().input("id", req.params.id).input("PROD_INV_id", _database.sql.VarChar, PROD_INV_id).input("PROD_USU_edit", _database.sql.Decimal, PROD_USU_edit).query(_database.querys.updateProductoBodegaById);
         case 9:
           result = _context5.sent;
           if (!(result.rowsAffected == 1)) {

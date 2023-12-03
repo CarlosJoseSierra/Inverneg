@@ -112,7 +112,6 @@ export const updateProductoBodegaById = async (req, res) => {
       .request()
       .input("id", req.params.id)
       .input("PROD_INV_id", sql.VarChar, PROD_INV_id)
-      .input("PROD_BOD_id", sql.VarChar, PROD_BOD_id)
       .input("PROD_USU_edit", sql.Decimal, PROD_USU_edit)
       .query(querys.updateProductoBodegaById);
 
