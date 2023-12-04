@@ -126,18 +126,19 @@ Content-Type: application/json
 }
 
 
-@api10 = http://localhost:3000/api/ubicacion
+//@api10 = http://localhost:3000/api/inventario
+@api10 = https://inverneg-production.up.railway.app/api/hist
 
 ### get product
-{{api10}}
+{{api10}}/1
 
 ### add a ubicacion
 //POST https://inverneg-production.up.railway.app/api/ubicacion/new
-PUT http://localhost:3000/api/ubicacion/x/32
+PUT http://localhost:3000/api/item/bod/1
 Content-Type: application/json
 
 {   
-    "UBIC_ciudad":"CARLOS JOSE",
-    "UBIC_provincia":"SIERRA ALVARADO",
-    "UBIC_USU_edit":1
+     "PROD_INV_id":57,
+    "PROD_USU_edit":1
 }
+
