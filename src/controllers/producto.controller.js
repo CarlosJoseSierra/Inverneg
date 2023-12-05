@@ -23,7 +23,7 @@ export const createNewProducto = async (req, res) => {
       .request()
       .input("PROD_codigo", sql.VarChar, PROD_codigo)
       .input("PROD_codigoExt", sql.VarChar, PROD_codigoExt)
-      .input("PROD_descripcion", sql.Decimal, PROD_descripcion)
+      .input("PROD_descripcion", sql.VarChar, PROD_descripcion)
       .input("PROD_TP_id", sql.Decimal, PROD_TP_id)
       .input("PROD_stockFijo", sql.Decimal, PROD_stockFijo)
       .input("PROD_costoFijo", sql.Decimal, PROD_costoFijo)
@@ -34,7 +34,7 @@ export const createNewProducto = async (req, res) => {
       .input("PROD_INV_id", sql.Decimal, PROD_INV_id)
       .input("PROD_USU_ing",sql.Decimal,PROD_USU_ing)
       .input("PROD_BOD_id", sql.Decimal, PROD_BOD_id)
-      .input("PROD_linea", sql.Decimal, PROD_linea)
+      .input("PROD_linea", sql.VarChar, PROD_linea)
       .query(querys.addNewProducto);
       if(result.rowsAffected[0]==1){
         return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0,PROD_id:result.recordset[0].PROD_id});
