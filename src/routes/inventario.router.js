@@ -17,6 +17,6 @@ router.post("/inventario/new", createNewInventory);
 
 router.get("/inventario/:id", getInventoryById);
 
-router.get("/inventario/y/:id", EndInventoryById);
+router.put("/inventario/y/:id", EndInventoryById);
 
 export default router;
