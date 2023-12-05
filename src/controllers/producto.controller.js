@@ -39,7 +39,7 @@ export const createNewProducto = async (req, res) => {
       if(result.rowsAffected[0]==1){
         return res.status(200).json({ status: "ok", msg: "Registro exitoso" ,token:0,PROD_id:result.recordset[0].PROD_id});
       }else{
-        return res.status(400).json({ status: "400", msg: "No se pudo registrar, consulte al administrador" ,token:0});
+        return res.status(400).json({ status: "400", msg: "No se pudo registrar, consulte al administrador" ,token:0,PROD_id:0});
       }
     
   } catch (error) {

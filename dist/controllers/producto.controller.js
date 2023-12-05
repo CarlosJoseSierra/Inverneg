@@ -73,7 +73,8 @@ var createNewProducto = /*#__PURE__*/function () {
           return _context2.abrupt("return", res.status(400).json({
             status: "400",
             msg: "No se pudo registrar, consulte al administrador",
-            token: 0
+            token: 0,
+            PROD_id: 0
           }));
         case 13:
           _context2.next = 20;
