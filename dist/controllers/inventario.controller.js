@@ -173,21 +173,22 @@ var getInventoryActive = /*#__PURE__*/function () {
 exports.getInventoryActive = getInventoryActive;
 var EndInventoryById = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(req, res) {
-    var pool, result;
+    var INV_USU_edit, pool, result;
     return _regeneratorRuntime().wrap(function _callee5$(_context5) {
       while (1) switch (_context5.prev = _context5.next) {
         case 0:
-          _context5.prev = 0;
-          _context5.next = 3;
+          INV_USU_edit = req.body.INV_USU_edit;
+          _context5.prev = 1;
+          _context5.next = 4;
           return (0, _database.getConnection)();
-        case 3:
+        case 4:
           pool = _context5.sent;
-          _context5.next = 6;
+          _context5.next = 7;
           return pool.request().input("id", req.params.id).input("INV_USU_edit", _database.sql.Decimal, INV_USU_edit).query(_database.querys.EndInventoryById);
-        case 6:
+        case 7:
           result = _context5.sent;
           if (!(result.rowsAffected == 1)) {
-            _context5.next = 11;
+            _context5.next = 12;
             break;
           }
           return _context5.abrupt("return", res.status(200).json({
@@ -195,25 +196,25 @@ var EndInventoryById = /*#__PURE__*/function () {
             msg: "Actualizacion exitosa",
             token: 0
           }));
-        case 11:
+        case 12:
           return _context5.abrupt("return", res.status(400).json({
             status: "400",
             msg: "No se pudo actualizar, consulte al administrador",
             token: 0
           }));
-        case 12:
-          _context5.next = 18;
+        case 13:
+          _context5.next = 19;
           break;
-        case 14:
-          _context5.prev = 14;
-          _context5.t0 = _context5["catch"](0);
+        case 15:
+          _context5.prev = 15;
+          _context5.t0 = _context5["catch"](1);
           res.status(500);
           res.send(_context5.t0.message);
-        case 18:
+        case 19:
         case "end":
           return _context5.stop();
       }
-    }, _callee5, null, [[0, 14]]);
+    }, _callee5, null, [[1, 15]]);
   }));
   return function EndInventoryById(_x9, _x10) {
     return _ref5.apply(this, arguments);

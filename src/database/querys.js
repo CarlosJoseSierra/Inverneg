@@ -118,5 +118,5 @@ export const querys = {
 
     getAllTipoProductos:"SELECT TP_id, TP_descripcion FROM TIPO_PRODUCTO",
 
-    EndInventoryById:"UPDATE INVENTARIO SET INV_estado = 0, INV_USU_edit = INV_USU_edit, INV_fecha_edit = GETDATE(),INV_fechaCierre = GETDATE() WHERE INV_id = @Id",
+    EndInventoryById:"UPDATE INVENTARIO SET INV_estado = 0, INV_USU_edit = @INV_USU_edit, INV_fecha_edit = GETDATE(),INV_fechaCierre = GETDATE() WHERE INV_id = @Id",
 };

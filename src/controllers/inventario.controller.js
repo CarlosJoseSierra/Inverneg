@@ -70,7 +70,7 @@ export const getInventoryActive = async (req, res) => {
 };
 
 export const EndInventoryById = async (req, res) => {
-
+  const { INV_USU_edit} = req.body;
 try {
   //console.log('no se conecto');
   const pool = await getConnection();
