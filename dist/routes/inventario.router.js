@@ -11,5 +11,6 @@ router.get("/inventario", _inventario.getInventory);
 router.get("/inventario/x", _inventario.getInventoryActive);
 router.post("/inventario/new", _inventario.createNewInventory);
 router.get("/inventario/:id", _inventario.getInventoryById);
+router.get("/inventario/y/:id", _inventario.EndInventoryById);
 var _default = router;
 exports["default"] = _default;

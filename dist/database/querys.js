@@ -91,6 +91,7 @@ var querys = {
   //updateProductoById: "UPDATE BODEGA SET BOD_descripcion = @BOD_descripcion,BOD_direccion = @BOD_direccion,BOD_SUC_id = @BOD_SUC_id,BOD_USU_edit = @BOD_USU_edit,BOD_fecha_edit = GETDATE() WHERE BOD_id = @Id",
   getProductoById: "SELECT PROD_id, PROD_codigo, PROD_codigoExt, PROD_descripcion, PROD_TP_id,PROD_stockFijo,PROD_costoFijo,PROD_costoFijo,PROD_stockReal,PROD_costoReal,PROD_totalReal,PROD_INV_id,PROD_USU_ing,PROD_fecha_ing,PROD_USU_edit,PROD_fecha_edit,PROD_estado,PROD_BOD_id,PROD_linea FROM PRODUCTO WHERE PROD_id = @Id",
   updateProductoBodegaById: "UPDATE PRODUCTO SET PROD_INV_id = @PROD_INV_id,PROD_USU_edit = @PROD_USU_edit,PROD_fecha_edit = GETDATE() WHERE PROD_BOD_id = @Id",
-  getAllTipoProductos: "SELECT TP_id, TP_descripcion FROM TIPO_PRODUCTO"
+  getAllTipoProductos: "SELECT TP_id, TP_descripcion FROM TIPO_PRODUCTO",
+  EndInventoryById: "UPDATE INVENTARIO SET INV_estado = 0, INV_USU_edit = INV_USU_edit, INV_fecha_edit = GETDATE(),INV_fechaCierre = GETDATE() WHERE INV_id = @Id"
 };
 exports.querys = querys;

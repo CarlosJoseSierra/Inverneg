@@ -117,4 +117,6 @@ export const querys = {
     updateProductoBodegaById:"UPDATE PRODUCTO SET PROD_INV_id = @PROD_INV_id,PROD_USU_edit = @PROD_USU_edit,PROD_fecha_edit = GETDATE() WHERE PROD_BOD_id = @Id",
 
     getAllTipoProductos:"SELECT TP_id, TP_descripcion FROM TIPO_PRODUCTO",
+
+    EndInventoryById:"UPDATE INVENTARIO SET INV_estado = 0, INV_USU_edit = INV_USU_edit, INV_fecha_edit = GETDATE(),INV_fechaCierre = GETDATE() WHERE INV_id = @Id",
 };

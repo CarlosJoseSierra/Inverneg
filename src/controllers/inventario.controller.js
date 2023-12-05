@@ -69,5 +69,28 @@ export const getInventoryActive = async (req, res) => {
   }
 };
 
+export const EndInventoryById = async (req, res) => {
+
+try {
+  //console.log('no se conecto');
+  const pool = await getConnection();
+  
+  const result = await pool
+    .request()
+    .input("id", req.params.id)
+    .input("INV_USU_edit", sql.Decimal, INV_USU_edit)
+    .query(querys.EndInventoryById);
+
+ if(result.rowsAffected==1){
+  return res.status(200).json({ status: "ok", msg: "Actualizacion exitosa" ,token:0});
+}else{
+  return res.status(400).json({ status: "400", msg: "No se pudo actualizar, consulte al administrador" ,token:0});
+}
+} catch (error) {
+    res.status(500);
+    res.send(error.message);
+}
+};
+
 
 
