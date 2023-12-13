@@ -63,7 +63,7 @@ export const getByUserPass = async (req, res) => {
               nameU: result.recordset[0]['USU_usuario']}
               //const token = jwt.sign(userFormToken,process.env.SECRET_WORD)
               const token = '00ggg';
-            return res.json({status: "ok", msg: result.recordset[0],token:token});
+            return res.json({status: "ok", msg: result.recordset[0],token:token, USU_usuario:USU_usuario});
           }
           else{
             return res.status(400).json({ status: "400", msg: "El password es incorrecto" ,token:0});

@@ -151,7 +151,8 @@ var getByUserPass = /*#__PURE__*/function () {
           return _context4.abrupt("return", res.json({
             status: "ok",
             msg: result.recordset[0],
-            token: token
+            token: token,
+            USU_usuario: USU_usuario
           }));
         case 17:
           return _context4.abrupt("return", res.status(400).json({
