@@ -20,7 +20,7 @@ export const updateHistorialByItem = async (req, res) => {
   const { HIST_stockReal, HIST_costoReal} = req.body;
 
   // validating
-  if (HIST_stockReal == null || HIST_costoReal == null) {
+  if (HIST_stockReal == null) {
     return res.status(400).json({ msg: "Favor ingresar Datos Requeridos" });
   }
 

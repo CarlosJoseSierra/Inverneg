@@ -48,7 +48,7 @@ var updateHistorialByItem = /*#__PURE__*/function () {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _req$body = req.body, HIST_stockReal = _req$body.HIST_stockReal, HIST_costoReal = _req$body.HIST_costoReal; // validating
-          if (!(HIST_stockReal == null || HIST_costoReal == null)) {
+          if (!(HIST_stockReal == null)) {
             _context2.next = 3;
             break;
           }
