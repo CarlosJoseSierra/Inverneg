@@ -82,7 +82,7 @@ export const querys = {
     addNewInventario:
     "INSERT INTO INVENTARIO(INV_descripcion,INV_BOD_id,INV_USU_ing,INV_fecha_ing,INV_USU_edit,INV_fecha_edit, INV_estado,INV_fechaCierre) VALUES(@INV_descripcion,@INV_BOD_id,@INV_USU_ing,GETDATE(),@INV_USU_ing,GETDATE(),1,GETDATE()); SELECT SCOPE_IDENTITY() AS INV_id;",
 
-    getAllInventory:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id",
+    getAllInventory:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id ORDER BY INV_id DESC",
 
     getInventoryById:"SELECT INV_id,INV_descripcion,INV_BOD_id,INV_USU_ing,FORMAT(INV_fecha_ing,'dd/MM/yyyy') AS INV_fecha_ing,INV_estado,FORMAT(INV_fecha_edit,'dd/MM/yyyy') AS INV_fecha_edit,INV_USU_edit,FORMAT(INV_fechaCierre,'dd/MM/yyyy') AS INV_fechaCierre,BOD_descripcion,SUC_descripcion FROM INVENTARIO INNER JOIN BODEGA ON INV_BOD_id = BOD_id INNER JOIN SUCURSAL ON BOD_SUC_id = SUC_id WHERE INV_id = @Id",
     
@@ -104,7 +104,7 @@ export const querys = {
     updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE UBIC_id = @Id",
     getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id ",
 
-    getHistorialProductById:"SELECT HIST_id,HIST_stockFijo,HIST_stockReal, HIST_costoFijo, HIST_costoReal, PROD_codigo, PROD_descripcion  FROM HISTORIAL_PRODUCTO INNER JOIN PRODUCTO ON HIST_PROD_id = PROD_id WHERE HIST_INV_id = @Id",
+    getHistorialProductById:"SELECT HIST_id,HIST_stockFijo,HIST_stockReal, HIST_costoFijo, HIST_costoReal, PROD_codigo, PROD_descripcion  FROM HISTORIAL_PRODUCTO INNER JOIN PRODUCTO ON HIST_PROD_id = PROD_id WHERE HIST_INV_id = @Id ORDER BY PROD_descripcion",
     updateHistorialByItem:"UPDATE HISTORIAL_PRODUCTO SET HIST_stockReal = @HIST_stockReal,HIST_costoReal = @HIST_costoReal WHERE HIST_id = @Id",
 
 
