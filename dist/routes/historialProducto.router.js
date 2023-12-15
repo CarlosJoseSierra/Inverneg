@@ -9,5 +9,6 @@ var _historialProducto = require("../controllers/historialProducto.controller");
 var router = (0, _express.Router)();
 router.get("/hist/:id", _historialProducto.getHistorialProductoByIdInventory);
 router.put("/hist/x/:id", _historialProducto.updateHistorialByItem);
+router.get("/hist/y/:id", _historialProducto.getDiferenciaByItem);
 var _default = router;
 exports["default"] = _default;

@@ -83,7 +83,8 @@ var querys = {
   updateUbicacionById: "UPDATE UBICACION SET UBIC_ciudad = @UBIC_ciudad,UBIC_provincia = @UBIC_provincia,UBIC_USU_edit = @UBIC_USU_edit,UBIC_fecha_edit = GETDATE() WHERE UBIC_id = @Id",
   getUbicacionById: "SELECT UBIC_ciudad, UBIC_provincia, UBIC_USU_ing, UBIC_fecha_ing FROM UBICACION WHERE UBIC_id = @Id ",
   getHistorialProductById: "SELECT HIST_id,HIST_stockFijo,HIST_stockReal, HIST_costoFijo, HIST_costoReal, PROD_codigo, PROD_descripcion  FROM HISTORIAL_PRODUCTO INNER JOIN PRODUCTO ON HIST_PROD_id = PROD_id WHERE HIST_INV_id = @Id ORDER BY PROD_descripcion",
-  updateHistorialByItem: "UPDATE HISTORIAL_PRODUCTO SET HIST_stockReal = @HIST_stockReal,HIST_costoReal = @HIST_costoReal WHERE HIST_id = @Id",
+  updateHistorialByItem: "UPDATE HISTORIAL_PRODUCTO SET HIST_stockReal = @HIST_stockReal,HIST_costoReal = @HIST_costoReal, HIST_USU_edit = @HIST_USU_edit, HIST_fecha_edit = GETDATE() WHERE HIST_id = @Id",
+  getDiferenciaProductById: "SELECT HIST_id,HIST_PROD_id, HIST_stockFijo,HIST_stockReal, HIST_costoFijo, HIST_costoReal, HIST_INV_id, HIST_USU_edit, HIST_fecha_edit,(HIST_stockFijo - HIST_stockReal) AS DIFERENCIA, USU_nombre, USU_usuario FROM HISTORIAL_PRODUCTO INNER JOIN USUARIOS ON HIST_USU_edit = USU_id WHERE (HIST_stockFijo <> HIST_stockReal and HIST_stockReal > 0) and HIST_INV_id = @Id ORDER BY DIFERENCIA DESC",
   //Items
   //17-11-2023
   getAllProductos: "SELECT PROD_id, PROD_codigo, PROD_codigoExt, PROD_descripcion, PROD_TP_id,PROD_stockFijo,PROD_costoFijo,PROD_costoFijo,PROD_stockReal,PROD_costoReal,PROD_totalReal,PROD_INV_id,PROD_USU_ing,PROD_fecha_ing,PROD_USU_edit,PROD_fecha_edit,PROD_estado,PROD_BOD_id,PROD_linea FROM PRODUCTO",

@@ -16,8 +16,24 @@ export const getHistorialProductoByIdInventory = async (req, res) => {
   }
 };
 
+export const getDiferenciaByItem = async (req, res) => {
+  try {
+    const pool = await getConnection();
+
+    const result = await pool
+      .request()
+      .input("id", req.params.id)
+      .query(querys.getDiferenciaProductById);
+    return res.json(result.recordset);
+  } catch (error) {
+    res.status(500);
+    res.send(error.message);
+  }
+};
+
+
 export const updateHistorialByItem = async (req, res) => {
-  const { HIST_stockReal, HIST_costoReal} = req.body;
+  const { HIST_stockReal, HIST_costoReal, HIST_USU_edit} = req.body;
 
   // validating
   if (HIST_stockReal == null) {
@@ -31,8 +47,9 @@ try {
   const result = await pool
     .request()
     .input("id", req.params.id)
-    .input("HIST_stockReal", sql.VarChar, HIST_stockReal)
-    .input("HIST_costoReal", sql.VarChar, HIST_costoReal)
+    .input("HIST_stockReal", sql.Decimal, HIST_stockReal)
+    .input("HIST_costoReal", sql.Decimal, HIST_costoReal)
+    .input("HIST_USU_edit", sql.Decimal, HIST_USU_edit)
     .query(querys.updateHistorialByItem);
 
  if(result.rowsAffected==1){
