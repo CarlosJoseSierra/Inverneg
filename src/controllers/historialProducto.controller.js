@@ -47,8 +47,8 @@ try {
   const result = await pool
     .request()
     .input("id", req.params.id)
-    .input("HIST_stockReal", sql.Decimal, HIST_stockReal)
-    .input("HIST_costoReal", sql.Decimal, HIST_costoReal)
+    .input("HIST_stockReal", sql.Decimal(18,2), HIST_stockReal)
+    .input("HIST_costoReal", sql.Decimal(18,2), HIST_costoReal)
     .input("HIST_USU_edit", sql.Decimal, HIST_USU_edit)
     .query(querys.updateHistorialByItem);
 

@@ -94,7 +94,7 @@ var updateHistorialByItem = /*#__PURE__*/function () {
         case 6:
           pool = _context3.sent;
           _context3.next = 9;
-          return pool.request().input("id", req.params.id).input("HIST_stockReal", _database.sql.Decimal, HIST_stockReal).input("HIST_costoReal", _database.sql.Decimal, HIST_costoReal).input("HIST_USU_edit", _database.sql.Decimal, HIST_USU_edit).query(_database.querys.updateHistorialByItem);
+          return pool.request().input("id", req.params.id).input("HIST_stockReal", _database.sql.Decimal(18, 2), HIST_stockReal).input("HIST_costoReal", _database.sql.Decimal(18, 2), HIST_costoReal).input("HIST_USU_edit", _database.sql.Decimal, HIST_USU_edit).query(_database.querys.updateHistorialByItem);
         case 9:
           result = _context3.sent;
           if (!(result.rowsAffected == 1)) {
