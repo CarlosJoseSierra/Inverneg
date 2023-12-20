@@ -134,11 +134,15 @@ Content-Type: application/json
 
 ### add a ubicacion
 //POST https://inverneg-production.up.railway.app/api/ubicacion/new
-PUT http://localhost:3000/api/item/bod/2
+PUT http://localhost:3000/api/hist/x/362
+//PUT https://inverneg-production.up.railway.app/api/hist/x/
 Content-Type: application/json
 
 {   
-     "PROD_INV_id":66,
-    "PROD_USU_edit":1
+     "HIST_stockReal":68.6,
+    "HIST_costoReal":10.6,
+    "HIST_USU_edit":3
 }
+
+
 
